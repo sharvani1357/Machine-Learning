@@ -7,7 +7,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score,mean_absolute_error
 #Page configuration
-st.set_page_config("Linear Regression",layout="centered")
+st.set_page_config("Simple Linear Regression",layout="centered")
 # install requiremnts : pip install -r requirements.txt #
 
 # load css #
@@ -19,7 +19,7 @@ load_css("style.css")
 # Title #
 st.markdown("""
             <div class="card">
-                <h1>Linear Regression</h1>
+                <h1>Simple Linear Regression</h1>
             <p>Predict <b> Tip Amount </b> from <b> Total Bill</b> using Linear Regression</p>
             </div>
             """,unsafe_allow_html=True)
@@ -59,7 +59,7 @@ st.markdown('<div class="card">',unsafe_allow_html=True)
 st.subheader("Total Bill vs Tip amount")
 fig,ax=plt.subplots()
 ax.scatter(df["total_bill"],df["tip"],alpha=0.5)
-ax.plot(df["total_bill"],model.predict(scaler.transform(df[["total_bill"]])),color="red")
+ax.plot(df["total_bill"],model.predict(scaler.transform(x)),color="red")
 ax.set_xlabel("Total Bill ($)")
 ax.set_ylabel("Tip Amount ($)")
 st.pyplot(fig)
